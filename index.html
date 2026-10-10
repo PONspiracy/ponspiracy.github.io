@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f8f6">
+  <meta name="description" content="PONspiracy — a small independent space for software projects, developer tools and curious experiments.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PONspiracy — Just code.">
+  <meta property="og:description" content="Small tools, curious ideas, and thoughtful code.">
+  <meta property="og:url" content="https://ponspiracy.github.io/">
+  <meta property="og:image" content="https://ponspiracy.github.io/assets/logo.png">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <title>PONspiracy — Just code.</title>
+  <style>
+    :root{color-scheme:light;--bg:#f8f8f6;--ink:#111;--secondary:#696968;--line:#dededa;--paper:#fff;--muted:#efefed}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    a:focus-visible{outline:2px solid #111;outline-offset:4px;border-radius:3px}
+    .wrap{max-width:1120px;padding:0 36px;margin:auto}
+    .topbar{background:var(--bg);border-bottom:1px solid var(--line)}
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;min-height:86px;gap:16px}
+    .brand{text-decoration:none;font-weight:900;font-size:1.18rem;letter-spacing:-.055em}
+    .brand span{font-weight:450;letter-spacing:-.03em}
+    .nav{display:flex;align-items:center;gap:36px;font-size:.88rem;font-weight:620}
+    .nav a{text-decoration:none;transition:opacity .2s}
+    .nav a:hover{opacity:.5}
+    .nav .nav-github{border:1px solid var(--ink);padding:10px 15px;border-radius:7px}
+    .main{padding-top:54px}
+    .eyebrow{text-transform:uppercase;font-size:.7rem;letter-spacing:.19em;font-weight:800}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center;min-height:540px;padding:50px 0 96px}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-size:clamp(3.5rem,7vw,6.8rem);letter-spacing:-.088em;line-height:1.01;font-weight:900;max-width:670px;margin:18px 0 26px}
+    .hero-lead{font-size:1.12rem;color:var(--secondary);max-width:450px;line-height:1.72;margin-bottom:32px}
+    .actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid #111;border-radius:7px;padding:13px 18px;font-size:.9rem;line-height:1.2;font-weight:720;text-decoration:none;transition:transform .18s ease,background .18s ease,color .18s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:#111;color:white}
+    .btn-secondary{background:transparent;color:#111}
+    .hero-art{background:var(--paper);min-height:384px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;padding:36px;position:relative;overflow:hidden}
+    .hero-art img{display:block;width:100%;max-width:440px;height:auto;object-fit:contain}
+    .section{padding:70px 0;border-top:1px solid var(--line)}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:30px}
+    h2{font-size:clamp(2rem,4.5vw,3.25rem);letter-spacing:-.066em;line-height:1.12;font-weight:840;margin:14px 0 0}
+    .subtext{font-size:.98rem;max-width:360px;color:var(--secondary);margin:0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:26px;min-height:238px;display:flex;flex-direction:column}
+    .card .num{font-size:.75rem;font-weight:800;color:#7d7d79;letter-spacing:.08em}
+    .card h3{font-size:1.25rem;letter-spacing:-.034em;margin:32px 0 12px}
+    .card p{font-size:.93rem;color:var(--secondary);line-height:1.65;margin:0}
+    .notice{background:#111;color:#fff;padding:32px 34px;border-radius:10px;margin:16px 0 80px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .notice p{margin:0;color:#bcbcb9;font-size:.96rem}
+    .notice h2{font-size:1.5rem;letter-spacing:-.04em;margin:0 0 8px}
+    .notice .btn{border-color:#fff;color:#111;background:#fff;white-space:nowrap}
+    .footer{border-top:1px solid var(--line)}
+    .footer .wrap{padding-top:28px;padding-bottom:38px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--secondary);font-size:.84rem}
+    .footer a{text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+    @media(max-width:780px){.wrap{padding:0 22px}.topbar .wrap{min-height:70px}.nav{gap:16px}.nav .nav-github{padding:9px 12px}.main{padding-top:0}.hero{grid-template-columns:1fr;gap:35px;padding:60px 0 70px;min-height:auto}.hero-art{min-height:290px}.cards{grid-template-columns:1fr}.card{min-height:190px}.card h3{margin-top:20px}.section{padding:60px 0}.section-head{display:block}.subtext{margin-top:18px}.notice{display:block;padding:28px}.notice .btn{margin-top:24px}.footer .wrap{flex-wrap:wrap}}
+    @media(max-width:400px){.nav{gap:10px}.nav a:first-child{display:none}.hero-art{min-height:230px;padding:24px}h1{font-size:3.25rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.nav a{transition:none}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="PONspiracy homepage">PON<span>spiracy</span></a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a class="nav-github" href="https://github.com/PONspiracy" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </nav>
+    </div>
+  </header>
+  <main id="top" class="wrap main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <span class="eyebrow">Independent software space</span>
+        <h1 id="hero-title">Just code.</h1>
+        <p class="hero-lead">PONspiracy is a home for useful developer tools, thoughtful engineering, and experiments worth sharing.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://github.com/PONspiracy" target="_blank" rel="noopener noreferrer">Explore GitHub ↗</a>
+          <a class="btn btn-secondary" href="#projects">Our focus ↘</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="assets/logo.png" alt="PONspiracy wordmark: bold PON above widely spaced spiracy lettering" width="750" height="290">
+      </div>
+    </section>
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="section-head">
+        <div><span class="eyebrow">What we make</span><h2 id="projects-title">Ideas worth building.</h2></div>
+        <p class="subtext">A space for projects of different shapes and sizes. The actual repositories live on GitHub.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><span class="num">01 / TOOLS</span><h3>Developer tooling</h3><p>Little things that make everyday development faster, cleaner, and more enjoyable.</p></article>
+        <article class="card"><span class="num">02 / SYSTEMS</span><h3>Backend & infrastructure</h3><p>Services, libraries, and useful building blocks for software behind the scenes.</p></article>
+        <article class="card"><span class="num">03 / LAB</span><h3>Experiments</h3><p>Ideas that are too interesting not to try, even when the outcome is uncertain.</p></article>
+      </div>
+    </section>
+    <aside class="notice" aria-label="Find the projects on GitHub">
+      <div><h2>See what is happening.</h2><p>The code, issues, and future projects are on GitHub.</p></div>
+      <a class="btn" href="https://github.com/PONspiracy" target="_blank" rel="noopener noreferrer">Visit organization ↗</a>
+    </aside>
+  </main>
+  <footer class="footer"><div class="wrap"><span>© <span id="year">2026</span> PONspiracy. Just code.</span><a href="https://github.com/PONspiracy" target="_blank" rel="noopener noreferrer">github.com/PONspiracy ↗</a></div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
